@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Greeting</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: #007bff; /* Added a color to the heading for better visibility */
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // Use a function to encapsulate the logic
+        function getGreeting() {
+            var currentTime = new Date().getHours();
+            var greeting;
+
+            if (currentTime >= 5 && currentTime < 12) {
+                greeting = 'Good Morning';
+            } else if (currentTime >= 12 && currentTime < 18) {
+                greeting = 'Good Afternoon';
+            } else {
+                greeting = 'Good Evening';
+            }
+
+            return greeting;
+        }
+
+        // Avoid using document.write (not recommended)
+        // Instead, create an element and append it to the body
+        var greetingMessage = getGreeting();
+        var headingElement = document.createElement('h1');
+        headingElement.textContent = greetingMessage + ', User!';
+        document.body.appendChild(headingElement);
+    </script>
+
+</body>
+</html>
